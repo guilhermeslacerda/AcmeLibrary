@@ -1,0 +1,14 @@
+repository\DataRepository.class
+repository\InMemoryRepository.class
+library\Magazine.class
+services\LibraryService.class
+library\exceptions\InvalidPublicationException.class
+library\Paper.class
+library\Editor.class
+library\Publication.class
+library\exceptions\InvalidEditorException.class
+library\Subject.class
+library\exceptions\InvalidAuthorException.class
+library\Agent.class
+library\Author.class
+library\Book.class

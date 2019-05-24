@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InMemoryRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AcmeLibrary</a> &gt; <a href="index.source.html" class="el_package">repository</a> &gt; <span class="el_source">InMemoryRepository.java</span></div><h1>InMemoryRepository.java</h1><pre class="source lang-java linenums">package repository;
+
+import library.exceptions.InvalidAuthorException;
+import library.exceptions.InvalidEditorException;
+import library.exceptions.InvalidPublicationException;
+import library.Agent;
+import library.Author;
+import library.Editor;
+import library.Publication;
+
+import java.util.HashMap;
+
+<span class="fc" id="L13">public class InMemoryRepository implements DataRepository {</span>
+<span class="fc" id="L14">    private HashMap&lt;Integer, Agent&gt; agents = new HashMap&lt;Integer, Agent&gt;();</span>
+<span class="fc" id="L15">    private HashMap&lt;Integer, Publication&gt; pubs = new HashMap&lt;Integer, Publication&gt;();</span>
+
+    @Override
+    public void addAuthor(Author author) {
+<span class="fc" id="L19">        agents.put(author.getId(), author);</span>
+<span class="fc" id="L20">    }</span>
+
+    @Override
+    public void addEditor(Editor editor) {
+<span class="fc" id="L24">        agents.put(editor.getId(), editor);</span>
+<span class="fc" id="L25">    }</span>
+
+    @Override
+    public Author findAuthor(int id) throws InvalidAuthorException {
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        if (!agents.containsKey(id))</span>
+<span class="fc" id="L30">            throw new InvalidAuthorException(&quot;Author not found&quot;);</span>
+<span class="fc" id="L31">        Author author = (Author) agents.get(id);</span>
+
+<span class="fc" id="L33">        return author;</span>
+    }
+
+    @Override
+    public Editor findEditor(int id) throws InvalidEditorException {
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (!agents.containsKey(id))</span>
+<span class="fc" id="L39">            throw new InvalidEditorException(&quot;Editor not found&quot;);</span>
+<span class="fc" id="L40">        Editor editor = (Editor) agents.get(id);</span>
+
+<span class="fc" id="L42">        return editor;</span>
+    }
+
+    @Override
+    public void addPublication(Publication pub) {
+<span class="fc" id="L47">        pubs.put(pub.getId(), pub);</span>
+<span class="fc" id="L48">    }</span>
+
+    @Override
+    public boolean removePublication(int id) throws InvalidPublicationException {
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        if (!pubs.containsKey(id))</span>
+<span class="fc" id="L53">            throw new InvalidPublicationException(&quot;Publication not found&quot;);</span>
+<span class="fc" id="L54">        pubs.remove(id);</span>
+<span class="fc" id="L55">        return true;</span>
+    }
+
+    @Override
+    public Publication findPublication(int id) throws InvalidPublicationException {
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        if (!pubs.containsKey(id))</span>
+<span class="fc" id="L61">            throw new InvalidPublicationException(&quot;Publication not found&quot;);</span>
+<span class="fc" id="L62">        Publication pub = (Publication) pubs.get(id);</span>
+
+<span class="fc" id="L64">        return pub;</span>
+    }
+
+    @Override
+    public int sizeAgents() {
+<span class="fc" id="L69">        return agents.size();</span>
+    }
+
+    @Override
+    public int sizePublications() {
+<span class="fc" id="L74">        return pubs.size();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

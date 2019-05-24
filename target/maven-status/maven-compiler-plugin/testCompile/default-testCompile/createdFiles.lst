@@ -1,0 +1,7 @@
+library\BookTest.class
+library\PaperTest.class
+library\AuthorTest.class
+library\EditorTest.class
+library\MagazineTest.class
+services\LibraryServiceTest.class
+library\SubjectTest.class
