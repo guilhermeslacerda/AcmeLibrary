@@ -217,7 +217,7 @@ public class LibraryServiceTest {
         me = new Author(1, "Guilherme", "Lacerda");
         you = new Author(2, "Fabio", "Petrillo");
     }
-
+ 
     private void createEditor() {
         editor = new Editor(1, "Marcelo Pimenta");
     }
