@@ -39,11 +39,11 @@ pipeline {
                 echo 'Analysing source code..'
                 sh 'mvn pmd:pmd'
             }
-            post {
-                always {
-                    pmd canComputeNew: false, pattern: '**/target/pmd.xml' 
-                }
-            }
+            //post {
+            //    always {
+            //        pmd canComputeNew: false, pattern: '**/target/pmd.xml' 
+            //    }
+            //}
 
         }
     }
